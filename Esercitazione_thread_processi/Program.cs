@@ -12,18 +12,29 @@ namespace Esercitazione_thread_processi
         static void Main(string[] args)
         {
 
-            Thread myThread = new Thread(() =>
-            {
-                Console.WriteLine("MyThread è iniziato");
-                Thread.Sleep(1000);
-                Console.WriteLine("MyThread è terminato");
-            });
+            //Thread myThread = new Thread(() =>
+            //{
+            //    Console.WriteLine("MyThread è iniziato");
+            //    Thread.Sleep(1000);
+            //    Console.WriteLine("MyThread è terminato");
+            //});
 
-            //esecuzione di myThread
-            myThread.Start();
+            ////esecuzione di myThread
+            //myThread.Start();
 
-            Thread.Sleep(500);
-            Console.WriteLine("Main Thread");
+            //Thread.Sleep(500);
+            //Console.WriteLine("Main Thread");
+            //Console.ReadLine();
+
+            string someVariable = "Matteo Tumiati";
+            var workerThread = new Thread(() =>
+              {
+                  Thread.Sleep(500);
+                  Console.WriteLine("Saluti da: {0}", someVariable);
+              });
+
+            workerThread.Start();
+            someVariable = "Daniele Bochicchio";
             Console.ReadLine();
         }
     }
