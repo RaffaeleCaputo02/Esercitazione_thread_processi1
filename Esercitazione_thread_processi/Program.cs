@@ -11,6 +11,7 @@ namespace Esercitazione_thread_processi
         static void Main(string[] args)
         {
 
+
         }
     }
 }
