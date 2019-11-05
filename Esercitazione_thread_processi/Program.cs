@@ -26,6 +26,10 @@ namespace Esercitazione_thread_processi
             //Console.WriteLine("Main Thread");
             //Console.ReadLine();
 
+
+
+
+
             //string someVariable = "Matteo Tumiati";
             //var workerThread = new Thread(() =>
             //  {
@@ -36,6 +40,9 @@ namespace Esercitazione_thread_processi
             //workerThread.Start();
             //someVariable = "Daniele Bochicchio";
             //Console.ReadLine();
+
+
+
 
             //var list = new List<Thread>();
             ////Qui creiamo ed eseguiamo cinque worker thread
@@ -59,11 +66,22 @@ namespace Esercitazione_thread_processi
             //Console.WriteLine("esecuzione di tutti i thread terminata");
             //Console.ReadLine();
 
+
+
+
+
             var workerThread = new Thread(() =>
               {
-                  Console.WriteLine("Inizio di un thread molto lungo");
-                  Thread.Sleep(5000);
-                  Console.WriteLine("Termine worker thread");
+                  try
+                  {
+                      Console.WriteLine("Inizio di un thread molto lungo");
+                      Thread.Sleep(5000);
+                      Console.WriteLine("Termine worker thread");
+                  }
+                  catch(ThreadAbortException ex)
+                  {
+                      //codice per gestire l'eccezione
+                  }  
               });
 
             workerThread.Start();
